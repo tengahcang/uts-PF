@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Stuff extends Model
 {
     use HasFactory;
-    public function units(){
+    public function unit(){
         return $this->belongsTo(Unit::class);
     }
 }

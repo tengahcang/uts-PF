@@ -30,10 +30,19 @@
         </div>
     </div>
 
+    <div class="row mb-0">
+        <div class="col-lg-3 col-xl-2">
+            <div class="d-grid gap-2">
+                <a class="btn btn-primary" href="{{ route('barang.create') }}">Create</a>
+            </div>
+        </div>
+    </div>
+
     <div class="table-responsive border p-3 rounded-3">
         <table class="table table-bordered table-hover table-striped mb-0 bg-white">
             <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Kode_Barang</th>
                     <th>Nama_Barang</th>
                     <th>Harga_Barang</th>
@@ -45,12 +54,25 @@
             <tbody>
                 @foreach ($listbarang as $barang)
                     <tr>
+                        <td>{{ $barang->id }}</td>
                         <td>{{ $barang->kode_barang }}</td>
                         <td>{{ $barang->nama_barang }}</td>
                         <td>{{ $barang->harga_barang }}</td>
                         <td>{{ $barang->deskripsi_barang }}</td>
-                        <td>{{ $barang->units->id }}</td>
-                        <td></td>
+                        <td>{{ $barang->nama_satuan }}</td>
+                        <td>
+                            <div class="d-flex">
+                                <a href="{{ route('barang.show', ['barang' => $barang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
+                                <a href="{{ route('barang.edit', ['barang' => $barang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-pencil-square"></i></a>
+                                <div>
+                                    <form action="{{ route('barang.destroy', ['barang' => $barang->id]) }}" method="POST">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="btn btn-outline-dark btn-sm me-2"><i class="bi-trash"></i></button>
+                                    </form>
+                                </div>
+                            </div>
+                        </td>
                     </tr>
                 @endforeach
             </tbody>
