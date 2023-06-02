@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ItemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('home', function () {return view('home');})->name('home');
+route::redirect('/', '/home');
+route::get('about', AboutController::class)->name('about');
+route::resource('barang',ItemController::class);
