@@ -19,21 +19,21 @@ class StuffSeeder extends Seeder
                 'Nama_Barang'=>'Beras',
                 'Harga_Barang'=>10000,
                 'Deskripsi_Barang'=>'siap makan',
-                'stuff_id'=>1
+                'unit_id'=>1
             ],
             [
                 'Kode_Barang'=>'GL',
                 'Nama_Barang'=>'Gula',
                 'Harga_Barang'=>5000,
                 'Deskripsi_Barang'=>'manis sekali',
-                'stuff_id'=>2
+                'unit_id'=>2
             ],
             [
                 'Kode_Barang'=>'MYK',
                 'Nama_Barang'=>'Minyak',
                 'Harga_Barang'=>15000,
                 'Deskripsi_Barang'=>'siap goreng',
-                'stuff_id'=>3
+                'unit_id'=>3
             ]
         ]);
     }

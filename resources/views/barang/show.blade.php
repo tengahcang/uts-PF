@@ -50,7 +50,7 @@
                     </div>
                     <div class="col-md-12 mb-3">
                         <label for="unit" class="form-label">Unit</label>
-                        <h5>{{ $databarang->nama_satuan }}</h5>
+                        <h5>{{ $databarang->unit->nama_satuan }}</h5>
                     </div>
                 </div>
                 <hr>

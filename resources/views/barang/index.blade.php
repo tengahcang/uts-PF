@@ -59,7 +59,7 @@
                         <td>{{ $barang->nama_barang }}</td>
                         <td>{{ $barang->harga_barang }}</td>
                         <td>{{ $barang->deskripsi_barang }}</td>
-                        <td>{{ $barang->nama_satuan }}</td>
+                        <td>{{ $barang->unit->kode_satuan.' - '.$barang->unit->nama_satuan }}</td>
                         <td>
                             <div class="d-flex">
                                 <a href="{{ route('barang.show', ['barang' => $barang->id]) }}" class="btn btn-outline-dark btn-sm me-2"><i class="bi-person-lines-fill"></i></a>
