@@ -6,7 +6,6 @@ use App\Models\Stuff;
 use App\Models\stuff as ModelsStuff;
 use App\Models\unit;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class ItemController extends Controller
@@ -16,14 +15,14 @@ class ItemController extends Controller
      */
     public function index()
     {
-        $pagetitle = "list barang index";
+        $pagetitle = "list barang";
         $listbarang = Stuff::all();
         // $listbarangs = DB::table('stuffs')
         //             ->select('*','stuffs.id as id' )
         //             ->leftJoin('units','stuff_id','=','units.id')
         //             ->get();
         return view('barang.index',[
-            'page_title'=>$pagetitle,
+            'pagetitle'=>$pagetitle,
             'listbarang'=>$listbarang
         ]);
     }
@@ -39,7 +38,7 @@ class ItemController extends Controller
         //                 ->get();
         $dataunit = unit::all();
         return  view('barang.create',[
-            'page_title'=>$pagetitle,
+            'pagetitle'=>$pagetitle,
             'units'=>$dataunit
         ]);
     }
@@ -51,11 +50,13 @@ class ItemController extends Controller
     {
         $messages = [
             'required' => 'Attribute harus diisi',
+            'numeric' => 'Isi : attribute dengan angka',
+            'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
-            'kodebarang'=>'required',
+            'kodebarang'=>'required|regex:/^[A-Z]+$/',
             'namabarang'=>'required',
-            'hargabarang'=>'required',
+            'hargabarang'=>'required|numeric',
             'deskripsibarang'=>'required'
         ], $messages);
         if ($validator->fails()){
@@ -119,12 +120,14 @@ class ItemController extends Controller
     {
         $messages = [
             'required' => 'Attribute harus diisi',
+            'numeric' => 'Isi : attribute dengan angka',
+            'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
             'kodebarang'=>'required',
             'namabarang'=>'required',
-            'hargabarang'=>'required',
-            'deskripsibarang'=>'required'
+            'hargabarang'=>'required|numeric',
+            'deskripsibarang'=>'required|regex:/^[A-Z]+$/'
         ], $messages);
         if ($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();

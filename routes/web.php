@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('home', function () {return view('home');})->name('home');
+Route::get('home', function () {return view('home',['pagetitle'=>'home']);})->name('home');
 route::redirect('/', '/home');
 route::get('about', AboutController::class)->name('about');
 route::resource('/barang',ItemController::class);
