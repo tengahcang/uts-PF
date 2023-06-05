@@ -5,7 +5,7 @@
             <div class="card-header py-3">
                 <div class="row mb-0">
                     <div class="col-lg-9 col-xl-10">
-                        <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        <h6 class="m-0 font-weight-bold text-primary">Tables barang</h6>
                     </div>
                     <div class="col-lg-3 col-xl-2">
                         <div class="d-grid gap-2">

@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Stuff;
-use App\Models\stuff as ModelsStuff;
+use App\Models\stuff;
 use App\Models\unit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -124,10 +123,10 @@ class ItemController extends Controller
             'regex' => 'Isi : attribute dengan huruf besar saja'
         ];
         $validator = Validator::make($request->all(), [
-            'kodebarang'=>'required',
+            'kodebarang'=>'required|regex:/^[A-Z]+$/',
             'namabarang'=>'required',
             'hargabarang'=>'required|numeric',
-            'deskripsibarang'=>'required|regex:/^[A-Z]+$/'
+            'deskripsibarang'=>'required'
         ], $messages);
         if ($validator->fails()){
             return redirect()->back()->withErrors($validator)->withInput();
@@ -147,7 +146,7 @@ class ItemController extends Controller
      */
     public function destroy(string $id)
     {
-        ModelsStuff::find($id)->delete();
+        stuff::find($id)->delete();
         return redirect()->route('barang.index');
     }
 }

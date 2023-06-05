@@ -7,11 +7,11 @@
                 <div class="p-5 bg-light rounded-3 border col-xl-6">
                     <div class="mb-3 text-center">
                         <i class="bi bi-file-earmark-plus fs-1"></i>
-                        <h4>Create Employee</h4>
+                        <h4>Create barang</h4>
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="mb-3">
                             <label for="kodebarang" class="form-label">Kode barang</label>
                             <input class="form-control @error ('kodebarang') is-invalid @enderror" type="text" name="kodebarang" id="kodebarang" value="{{ old('kodebarang') }}" placeholder="masukkan kode barang">
                             @error('kodebarang')
@@ -27,7 +27,7 @@
                                 </span>
                             @endif
                         </div> --}}
-                        <div class="col-md-6 mb-3">
+                        <div class="mb-3">
                             <label for="namabarang" class="form-label">Nama barang</label>
                             <input class="form-control @error('namabarang') is-invalid @enderror" type="text" name="namabarang" id="namabarang" value="{{ old('namabarang') }}" placeholder="masukkan nama barang">
                             @error('namabarang')
@@ -43,7 +43,7 @@
                                 </span>
                             @endif
                         </div> --}}
-                        <div class="col-md-6 mb-3">
+                        <div class="mb-3">
                             <label for="hargabarang" class="form-label">Harga barang</label>
                             <input class="form-control @error('hargabarang') is-invalid @enderror" type="text" name="hargabarang" id="hargabarang" value="{{ old('hargabarang') }}" placeholder="masukkan harga barang">
                             @error('hargabarang')
@@ -59,7 +59,7 @@
                                 </span>
                             @endif
                         </div> --}}
-                        <div class="col-md-6 mb-3">
+                        <div class="mb-3">
                             <label for="deskripsibarang" class="form-label">Deskripsi barang</label>
                             <input class="form-control @error('age') is-invalid @enderror" type="text" name="deskripsibarang" id="deskripsibarang" value="{{ old('deskripsibarang') }}" placeholder="masukkan deskripsi barang">
                             @error('deskripsibarang')
@@ -76,7 +76,7 @@
                             @endif
                         </div> --}}
                     </div>
-                    <div class="col-md-12 mb-3">
+                    <div class="mb-3">
                         <label for="unit" class="form-label">Satuan</label>
                         <select name="unit" id="unit" class="form-select">
                         @foreach ($units as $unit)
@@ -86,6 +86,9 @@
                         @error('unit')
                             <div class="text-danger"><small>{{ $message }}</small></div>
                         @enderror
+                    </div>
+                    <div class="mb-3">
+                        <p>jika satuan tidak ada maka bisa ditambahkan lewat <a href="{{route('unit.create')}}">link ini</a></p>
                     </div>
                     {{-- <div class="col-md-12 mb-3">
                         <label for="position" class="form-label">Position</label>
